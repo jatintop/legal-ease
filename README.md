@@ -20,8 +20,9 @@ Before running LegalEase, ensure you have:
 
 - **Python 3.8+**: [Download Python](https://www.python.org/downloads/)
 - **Git**: [Install Git](https://git-scm.com/downloads)
-- **A Gemini API Key**: Obtain from [Google AI Studio](https://aistudio.google.com/) or equivalent Gemini API provider.
 - **Font Awesome**: Included via CDN in the project—no separate install needed.
+
+**Note**: The Gemini API key is pre-configured in the `.env` file for hackathon purposes—no need to obtain your own.
 
 ---
 
@@ -50,13 +51,6 @@ Before running LegalEase, ensure you have:
    pip install flask requests python-dotenv
    ```
 
-4. **Configure Environment Variables**  
-   Create a `.env` file in the root directory:
-   ```bash
-   echo "GEMINI_API_KEY=your-gemini-api-key" > .env
-   ```
-   Replace `your-gemini-api-key` with your actual Gemini API key.
-
 ---
 
 ## Project Structure
@@ -79,7 +73,7 @@ your-repo/
 
 - `static/`: Frontend assets (JS, CSS).
 - `templates/`: HTML templates (`index.html` for home, `ai.html` for chat).
-- `.env`: Environment variables (API key).
+- `.env`: Environment variables (includes pre-configured Gemini API key).
 - `app.py`: Flask backend.
 - `prompts.py`: Prompt templates for Gemini API.
 
@@ -121,7 +115,7 @@ your-repo/
 
 ## Configuration
 
-- **API Key**: Update `.env` with your Gemini API key if it changes.
+- **API Key**: The `.env` file includes a pre-configured Gemini API key for hackathon use—no changes needed.
 - **Port**: Modify `app.run(port=5000)` in `app.py` to use a different port if needed.
 
 ---
@@ -129,34 +123,7 @@ your-repo/
 ## Troubleshooting
 
 - **404 Not Found**: Ensure Flask routes match URLs (e.g., `/` for `index.html`, `/chat` for `ai.html`).
-- **API Errors**: Check `.env` for a valid `GEMINI_API_KEY` and internet connectivity.
-- **Overlap Issues**: Verify `styles.css` has sufficient `padding-bottom` on `.container` if footer overlaps content.
+- **API Errors**: Verify internet connectivity—API key is pre-set in `.env`.
+- **Overlap Issues**: Check `styles.css` for sufficient `padding-bottom` on `.container` if footer overlaps content.
 
 ---
-
-## Contributing
-
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature-name`).
-3. Commit changes (`git commit -m "Add feature"`).
-4. Push to your fork (`git push origin feature-name`).
-5. Open a Pull Request.
-
----
-
-```
-```
-
----
-
-### How to Use
-1. **Copy the Entire Block**: Select all text between the triple backticks (excluding the outer ```markdown and ```).
-2. **Create `README.md`**:
-   - Save it as `C:\Users\jatin\OneDrive\Documents\Projects\Hackathon\LegalEase\README.md`.
-3. **Commit to GitHub**:
-   ```bash
-   git add README.md
-   git commit -m "Add formatted README"
-   git push
-   ```
-
