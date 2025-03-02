@@ -16,11 +16,11 @@ LegalEase is an AI-powered legal assistant built with Flask and the Gemini API, 
 
 ## Prerequisites
 
-Before running LegalEase, ensure you have:
+Before running LegalEase, ensure you have the following installed on your system:
 
-- **Python 3.8+**: [Download Python](https://www.python.org/downloads/)
-- **Git**: [Install Git](https://git-scm.com/downloads)
-- **Font Awesome**: Included via CDN in the project—no separate install needed.
+- **Python 3.8+**: Required to run the Flask app.
+- **Git**: Needed to clone the repository.
+- **Font Awesome**: Included via CDN—no separate install required.
 
 **Note**: The Gemini API key is pre-configured in the `.env` file for hackathon purposes—no need to obtain your own.
 
@@ -28,28 +28,70 @@ Before running LegalEase, ensure you have:
 
 ## Installation
 
-1. **Clone the Repository**  
-   Open a terminal and run:
+Follow these steps exactly to set up and run LegalEase:
+
+1. **Install Python**  
+   - **Windows**: Download and install Python 3.8+ from [python.org](https://www.python.org/downloads/). During installation, check "Add Python to PATH".
+   - **macOS**: Open Terminal and run:
+     ```bash
+     brew install python
+     ```
+     (Requires Homebrew—install it with `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` if not present.)
+   - **Linux**: Open a terminal and run:
+     ```bash
+     sudo apt update
+     sudo apt install python3 python3-pip
+     ```
+   - Verify installation:
+     ```bash
+     python3 --version  # Should output Python 3.8+ (or python --version on Windows)
+     ```
+
+2. **Install Git**  
+   - **Windows**: Download and install Git from [git-scm.com](https://git-scm.com/downloads). Accept defaults during setup.
+   - **macOS**: Open Terminal and run:
+     ```bash
+     brew install git
+     ```
+   - **Linux**: Open a terminal and run:
+     ```bash
+     sudo apt install git
+     ```
+   - Verify installation:
+     ```bash
+     git --version  # Should output git version 2.x.x
+     ```
+
+3. **Clone the Repository**  
+   Open a terminal and navigate to your desired directory:
    ```bash
    git clone https://github.com/yourusername/your-repo.git
    cd your-repo
    ```
 
-2. **Set Up a Virtual Environment**  
+4. **Set Up a Virtual Environment**  
    Create and activate a virtual environment:
    ```bash
-   python -m venv myenv
+   python3 -m venv myenv  # Windows: python -m venv myenv
    # Windows
    myenv\Scripts\activate
    # macOS/Linux
    source myenv/bin/activate
    ```
+   - Verify activation: Your terminal prompt should change (e.g., `(myenv)`).
 
-3. **Install Dependencies**  
-   Install required Python packages:
+5. **Install Dependencies**  
+   The repo includes a `requirements.txt` file with all Python packages. Install them:
    ```bash
-   pip install flask requests python-dotenv
+   pip install -r requirements.txt
    ```
+   - If missing, create it with:
+     ```bash
+     echo "flask==2.3.3" > requirements.txt
+     echo "requests==2.31.0" >> requirements.txt
+     echo "python-dotenv==1.0.0" >> requirements.txt
+     pip install -r requirements.txt
+     ```
 
 ---
 
@@ -68,14 +110,16 @@ your-repo/
 ├── .env
 ├── app.py
 ├── prompts.py
+├── requirements.txt
 └── README.md
 ```
 
 - `static/`: Frontend assets (JS, CSS).
 - `templates/`: HTML templates (`index.html` for home, `ai.html` for chat).
-- `.env`: Environment variables (includes pre-configured Gemini API key).
+- `.env`: Pre-configured with Gemini API key.
 - `app.py`: Flask backend.
 - `prompts.py`: Prompt templates for Gemini API.
+- `requirements.txt`: Lists Python dependencies.
 
 ---
 
@@ -86,7 +130,7 @@ your-repo/
    ```bash
    python app.py
    ```
-   The app runs on `http://localhost:5000` in debug mode.
+   - The app runs on `http://localhost:5000` in debug mode.
 
 2. **Access the Web Interface**  
    - Open your browser to `http://localhost:5000/` to see the home page (`index.html`).
@@ -116,14 +160,23 @@ your-repo/
 ## Configuration
 
 - **API Key**: The `.env` file includes a pre-configured Gemini API key for hackathon use—no changes needed.
-- **Port**: Modify `app.run(port=5000)` in `app.py` to use a different port if needed.
+- **Port**: Modify `app.run(port=5000)` in `app.py` to use a different port if needed:
+  ```python
+  # In app.py, change to desired port, e.g., 8080
+  if __name__ == '__main__':
+      app.run(port=8080, debug=True)
+  ```
 
 ---
 
 ## Troubleshooting
 
-- **404 Not Found**: Ensure Flask routes match URLs (e.g., `/` for `index.html`, `/chat` for `ai.html`).
+- **Command Not Found**: Ensure Python and Git are in your PATH:
+  ```bash
+  # Windows: Check "Add Python to PATH" during install, or manually add C:\Python39\ and C:\Program Files\Git\bin\
+  # macOS/Linux: Verify with `which python3` and `which git`
+  ```
+- **404 Not Found**: Confirm Flask routes match URLs (`/` for `index.html`, `/chat` for `ai.html`).
 - **API Errors**: Verify internet connectivity—API key is pre-set in `.env`.
-- **Overlap Issues**: Check `styles.css` for sufficient `padding-bottom` on `.container` if footer overlaps content.
 
 ---
