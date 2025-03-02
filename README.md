@@ -1,7 +1,3 @@
-Here’s the entire `README.md` file formatted in GitHub’s Markdown code block (triple backticks ```), which you can copy-paste directly into your repository. GitHub will automatically render it with proper formatting when viewed.
-
-```markdown
-```
 # LegalEase - Supreme Legal AI
 
 LegalEase is an AI-powered legal assistant built with Flask and the Gemini API, designed to streamline legal tasks under Indian law as of March 2025. It offers five powerful features: Swift Draft, AI Legal Assist, Contract Insight, Judgment Predict, and Legal IQ, accessible via an elegant web interface.
@@ -148,16 +144,6 @@ your-repo/
 
 ---
 
-## License
-
-© 2025 Jatin Topakar. All rights reserved.
-
----
-
-## Author
-
-- **Jatin Topakar**  
-  [GitHub](https://github.com/yourusername) | [Email](mailto:your.email@example.com)
 ```
 ```
 
@@ -173,13 +159,4 @@ your-repo/
    git commit -m "Add formatted README"
    git push
    ```
-4. **View on GitHub**: Visit your repo (e.g., `https://github.com/yourusername/your-repo`)—GitHub will auto-format it with headings, code blocks, and links.
 
----
-
-### Notes
-- **Auto-Formatting**: The triple-backtick code blocks (```bash) ensure GitHub renders commands as monospace code.
-- **Customization**: Replace `yourusername/your-repo` and optionally add your email as noted earlier.
-- **Preview**: GitHub’s Markdown renderer will handle all styling—looks clean and professional.
-
-This should format perfectly on GitHub—ready to guide users! Let me know if you need tweaks!
