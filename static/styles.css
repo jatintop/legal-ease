@@ -248,15 +248,13 @@ h1 {
     padding: 25px 20px;
   }
 }
-
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  max-width: 1440px;
-  margin: 20px auto 0;
-  padding: 1rem 2rem;
+  margin-top: 20px; 
+  padding: 1rem 0;
   background: linear-gradient(90deg, #106861, #035d61);
   color: white;
   display: flex;
@@ -269,12 +267,22 @@ h1 {
   z-index: 10;
 }
 
+.footer-content {
+  max-width: 1440px; 
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .footer span {
   letter-spacing: 0.5px;
 }
 
 .footer a {
-  color: #aeea00; /* Bright accent for link */
+  color: #aeea00; 
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 8px;
