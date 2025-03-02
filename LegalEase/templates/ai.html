@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalEase - Supreme Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="toggles">
+        <div class="toggle">
+          <a href="/">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </div>
+        <div class="toggle active" onclick="showTab('swift-draft')">
+          <i class="fas fa-file-alt"></i> Swift Draft
+        </div>
+        <div class="toggle" onclick="showTab('ai-legal-assist')">
+          <i class="fas fa-balance-scale"></i> AI Legal Assist
+        </div>
+        <div class="toggle" onclick="showTab('contract-insight')">
+          <i class="fas fa-search-dollar"></i> Contract Insight
+        </div>
+        <div class="toggle" onclick="showTab('judgment-predict')">
+          <i class="fas fa-chart-line"></i> Judgment Predict
+        </div>
+        <div class="toggle" onclick="showTab('legal-iq')">
+          <i class="fas fa-brain"></i> Legal IQ
+        </div>
+      </div>
+    </div>
+    
+    <div class="chat-area" id="chat-area">
+    </div>
+    
+    <div class="input-area">
+      <div id="swift-draft" class="tab-content active">
+        <select id="draft-type">
+          <option value="">Select Document Type</option>
+          <option value="NDA">Non-Disclosure Agreement</option>
+          <option value="Rental Agreement">Rental Agreement</option>
+          <option value="Employment Contract">Employment Contract</option>
+          <option value="Partnership Agreement">Partnership Agreement</option>
+          <option value="Will">Will</option>
+          <option value="Power of Attorney">Power of Attorney</option>
+          <option value="Sale Deed">Sale Deed</option>
+          <option value="MoU">Memorandum of Understanding</option>
+        </select>
+        <textarea id="draft-details" rows="1" placeholder="Enter details (e.g., Parties involved, key terms, special considerations)"></textarea>
+        <button onclick="callSwiftDraft()"><span>Generate</span></button>
+      </div>
+      
+      <div id="ai-legal-assist" class="tab-content">
+        <textarea id="legal-prompt" rows="1" placeholder="Ask any legal question about Indian law..."></textarea>
+        <button onclick="callAILegalAssist()"><span>Send</span></button>
+      </div>
+      
+      <div id="contract-insight" class="tab-content">
+        <input type="file" id="contract-file" accept=".txt,.docx,.pdf" onchange="validateFile(this)">
+        <button onclick="callContractInsight()"><span>Analyze</span></button>
+      </div>
+      
+      <div id="judgment-predict" class="tab-content">
+        <textarea id="case-details" rows="1" placeholder="Describe your case in detail including relevant facts, jurisdiction, and legal questions..."></textarea>
+        <input type="file" id="case-file" accept=".txt,.docx,.pdf" onchange="validateFile(this)">
+        <button onclick="callJudgmentPredict()"><span>Predict</span></button>
+      </div>
+      
+      <div id="legal-iq" class="tab-content">
+        <textarea id="iq-prompt" rows="1" placeholder="Ask about a legal concept or provide an article link for analysis..."></textarea>
+        <button onclick="callLegalIQ()"><span>Explore</span></button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="{{ url_for('static', filename='script.js') }}" type="module"></script>
+</body>
+</html>

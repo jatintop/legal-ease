@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalEase - Supreme Legal AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>LegalEase</h1>
+    <div class="cards">
+      <div class="card" onclick="location.href='/chat?mode=swift-draft'">
+        <h3>Swift Draft</h3>
+        <p>Craft legal documents with divine speed and Indian law precision. Perfect for NDAs, contracts, and agreements aligned with local regulations.</p>
+      </div>
+      <div class="card" onclick="location.href='/chat?mode=ai-legal-assist'">
+        <h3>AI Legal Assist</h3>
+        <p>Unleash instant wisdom on Indian legal queries. Get accurate insights on case law, regulations, and procedures tailored to your jurisdiction.</p>
+      </div>
+      <div class="card" onclick="location.href='/chat?mode=contract-insight'">
+        <h3>Contract Insight</h3>
+        <p>Decode contracts with clarity and risk scores. Identify potential pitfalls, obligations, and opportunities hidden in legal language.</p>
+      </div>
+      <div class="card" onclick="location.href='/chat?mode=judgment-predict'">
+        <h3>Judgment Predict</h3>
+        <p>Foretell case outcomes with data-driven visualizations. Analyze precedents and predict litigation results with intelligent insights.</p>
+      </div>
+      <div class="card" onclick="location.href='/chat?mode=legal-iq'">
+        <h3>Legal IQ</h3>
+        <p>Ascend to legal enlightenment with interactive insights. Transform complex legal concepts into accessible knowledge through conversational AI.</p>
+      </div>
+    </div>
+    <a href="/chat"><button class="chat-btn"><span>Start Consulting</span></button></a>
+    <footer class="footer">
+      <span>Jatin Topakar © 2025</span>
+      <a href="https://github.com/yourusername/your-repo" target="_blank">View on GitHub</a>
+    </footer>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px)';
+          this.style.boxShadow = '0 15px 35px rgba(3, 93, 97, 0.15)';
+          this.style.borderColor = 'rgba(16, 104, 97, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = '';
+          this.style.boxShadow = '';
+          this.style.borderColor = '';
+        });
+      });
+      
+      const button = document.querySelector('.chat-btn');
+      button.addEventListener('click', function(e) {
+        const x = e.clientX - e.target.getBoundingClientRect().left;
+        const y = e.clientY - e.target.getBoundingClientRect().top;
+        
+        const ripple = document.createElement('span');
+        ripple.style.position = 'absolute';
+        ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.width = '100px';
+        ripple.style.height = '100px';
+        ripple.style.transform = 'translate(-50%, -50%)';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.style.animation = 'ripple 0.8s linear';
+        ripple.style.opacity = '0';
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 800);
+      });
+    });
+    
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        0% {
+          transform: translate(-50%, -50%) scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(3);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
