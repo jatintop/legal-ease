@@ -85,14 +85,6 @@ Follow these steps exactly to set up and run LegalEase:
    ```bash
    pip install -r requirements.txt
    ```
-   - If missing, create it with:
-     ```bash
-     echo "flask==2.3.3" > requirements.txt
-     echo "requests==2.31.0" >> requirements.txt
-     echo "python-dotenv==1.0.0" >> requirements.txt
-     pip install -r requirements.txt
-     ```
-
 ---
 
 ## Project Structure
